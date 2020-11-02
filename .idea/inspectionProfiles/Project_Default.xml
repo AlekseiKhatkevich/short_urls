@@ -1,0 +1,113 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AssertInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="24">
+            <item index="0" class="java.lang.String" itemvalue="pendulum" />
+            <item index="1" class="java.lang.String" itemvalue="orjson" />
+            <item index="2" class="java.lang.String" itemvalue="drf-orjson-renderer" />
+            <item index="3" class="java.lang.String" itemvalue="httpx" />
+            <item index="4" class="java.lang.String" itemvalue="django-cacheops" />
+            <item index="5" class="java.lang.String" itemvalue="django-ultracache" />
+            <item index="6" class="java.lang.String" itemvalue="pysubs2" />
+            <item index="7" class="java.lang.String" itemvalue="async-timeout" />
+            <item index="8" class="java.lang.String" itemvalue="pyuca" />
+            <item index="9" class="java.lang.String" itemvalue="requests" />
+            <item index="10" class="java.lang.String" itemvalue="attrs" />
+            <item index="11" class="java.lang.String" itemvalue="chardet" />
+            <item index="12" class="java.lang.String" itemvalue="tqdm" />
+            <item index="13" class="java.lang.String" itemvalue="certifi" />
+            <item index="14" class="java.lang.String" itemvalue="aiohttp" />
+            <item index="15" class="java.lang.String" itemvalue="multidict" />
+            <item index="16" class="java.lang.String" itemvalue="yarl" />
+            <item index="17" class="java.lang.String" itemvalue="urllib3" />
+            <item index="18" class="java.lang.String" itemvalue="idna" />
+            <item index="19" class="java.lang.String" itemvalue="tzdata" />
+            <item index="20" class="java.lang.String" itemvalue="h11" />
+            <item index="21" class="java.lang.String" itemvalue="uvicorn" />
+            <item index="22" class="java.lang.String" itemvalue="click" />
+            <item index="23" class="java.lang.String" itemvalue="packaging" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value=":=" />
+          <option value="" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N806" />
+        </list>
+      </option>
+      <option name="ignoredBaseClasses">
+        <list>
+          <option value="unittest.TestCase" />
+          <option value="unittest.case.TestCase" />
+          <option value="configurations.base.Configuration" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="int.empty_values" />
+          <option value="archives.models.ImageModel.series" />
+          <option value="django.db.models.base.ModelBase._meta" />
+          <option value="django.db.models.base.Model.user_id" />
+          <option value="django.db.models.base.Model.user" />
+          <option value="django.db.models.base.Model.user_ip" />
+          <option value="django.db.models.base.Model.ip" />
+          <option value="django.db.models.base.Model.sample_time" />
+          <option value="type.without_ui" />
+          <option value="type.with_ui" />
+          <option value="type.get_extra_actions" />
+          <option value="type.error_messages" />
+          <option value="django.db.models.base.Model.is_slave" />
+          <option value="django.db.models.base.Model.is_available_slave" />
+          <option value="functools.singledispatchmethod" />
+          <option value="archives.tests.positive.test_images_create_delete_positive_test.ImageDeletePositiveTest.temp_dir" />
+          <option value="archives.tests.negative.test_images_create_delete_negative_test.ImageDeleteNegativeTest.temp_dir" />
+          <option value="archives.models.ImageModel.stored_image_hash" />
+          <option value="series.helpers.serializer_mixins.NoneInsteadEmptyMixin.Meta" />
+          <option value="object.to_representation" />
+          <option value="series.helpers.serializer_mixins.NoneInsteadEmptyMixin.fields" />
+          <option value="archives.views.TvSeriesBase.obj" />
+          <option value="type.__getattr__" />
+          <option value="archives.helpers.custom_fields.CustomHStoreField.keys" />
+          <option value="archives.helpers.custom_fields.CustomHStoreField.items" />
+          <option value="archives.helpers.custom_fields.CustomHStoreField.values" />
+          <option value="datetime.date.fromisocalendar" />
+          <option value="rest_framework.fields.empty.values" />
+          <option value="rest_framework.fields.empty.keys" />
+          <option value="rest_framework.fields.empty.*" />
+          <option value="archives.views.SeasonsViewSet.series" />
+          <option value="django.db.models.query.QuerySet.select_x_percent" />
+          <option value="django.db.models.base.ModelBase.access_logs" />
+          <option value="administration.views.HistoryViewSet.obj" />
+          <option value="administration.views.HistoryViewSet.model_instance" />
+          <option value="administration.models.EntriesChangeLog.prev_state" />
+          <option value="administration.models.EntriesChangeLog.next_state" />
+          <option value="django.db.models.base.Model.entry_author" />
+          <option value="archives.models._meta" />
+          <option value="django.db.models.base.ModelBase.objects" />
+          <option value="django.contrib.auth.models.Permission.get_queryset" />
+          <option value="django.db.models.base.Model.deleted" />
+          <option value="series.helpers.serializer_mixins.ReadOnlyAllFieldsMixin.fields" />
+          <option value="archives.tests.positive.test_subtitles_api_positive.SubtitlesAPIPositiveTest.srt_file" />
+          <option value="archives.tests.positive.test_subtitles_api_positive.SubtitlesAPIPositiveTest.test_srt_file_path" />
+          <option value="tomb_cage.Tombola.register" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
