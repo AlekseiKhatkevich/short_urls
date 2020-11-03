@@ -14,3 +14,7 @@ WRONG_FULL_URL = error_message(
     'URL не корректно отформатированн',
     'wrong_full_url',
 )
+UNIQUE_URL_CODE = error_message(
+    'Такой "url_code" уже существует. Придумайте другой',
+    'unique_url_code',
+)

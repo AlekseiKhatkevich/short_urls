@@ -39,10 +39,12 @@ class UrlModel(models.Model):
         max_length=7,
         default=functools.partial(get_random_string, 7),
         validators=[MinLengthValidator(7), ],
-        error_messages=dict.fromkeys(
+        error_messages={
+            'unique': error_messages.UNIQUE_URL_CODE.message,
+            **dict.fromkeys(
                      ('min_length', 'max_length',),
                      error_messages.WRONG_URL_CODE_LEN.message,
-                 )
+                 )}
     )
     creation_datetime = models.DateTimeField(
         verbose_name='creation datetime',
