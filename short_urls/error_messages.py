@@ -10,3 +10,7 @@ WRONG_URL_CODE_LEN = error_message(
     'Длинна "url_code" должна быть ровно 7 символов',
     'wrong_url_code_len',
 )
+WRONG_FULL_URL = error_message(
+    'URL не корректно отформатированн',
+    'wrong_full_url',
+)

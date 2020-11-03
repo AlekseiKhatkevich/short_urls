@@ -7,6 +7,7 @@ from django.db.models.functions import Length
 from django.utils.crypto import get_random_string
 from short_urls import constants
 from bitly import validators
+from short_urls import error_messages
 
 CharField.register_lookup(Length)
 
@@ -15,17 +16,22 @@ class UrlModel(models.Model):
     """
 
     """
-
     user_id = models.UUIDField(
         verbose_name='user unique identifier',
         db_index=True,
         validators=[
             validators.UUIDValidator(4)
-        ]
+        ],
+        error_messages={
+            'invalid': error_messages.WRONG_UUID.message,
+        },
     )
     full_url = models.URLField(
         verbose_name='full url',
         db_index=True,
+        error_messages={
+            'invalid': error_messages.WRONG_FULL_URL.message,
+        },
     )
     url_code = models.CharField(
         verbose_name='short_url',
@@ -33,6 +39,10 @@ class UrlModel(models.Model):
         max_length=7,
         default=functools.partial(get_random_string, 7),
         validators=[MinLengthValidator(7), ],
+        error_messages=dict.fromkeys(
+                     ('min_length', 'max_length',),
+                     error_messages.WRONG_URL_CODE_LEN.message,
+                 )
     )
     creation_datetime = models.DateTimeField(
         verbose_name='creation datetime',

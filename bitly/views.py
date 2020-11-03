@@ -8,4 +8,3 @@ class UrlCreateView(generics.CreateAPIView):
     
     """
     serializer_class = bitly_serializers.CreateUrlSerializer
-    model = serializer_class.Meta.model
