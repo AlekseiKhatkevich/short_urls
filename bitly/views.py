@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from bitly import serializers as bitly_serializers
+
+
+class UrlCreateView(generics.CreateAPIView):
+    """
+    
+    """
+    serializer_class = bitly_serializers.CreateUrlSerializer
+    model = serializer_class.Meta.model

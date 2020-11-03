@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # project's apps
-
     'bitly.apps.BitlyConfig',
+
+    # 3rd party apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

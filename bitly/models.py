@@ -1,5 +1,9 @@
+import functools
+
 from django.db import models
-from django.db.models import Q
+from django.utils.crypto import get_random_string
+
+from bitly import validators
 
 
 class UrlModel(models.Model):
@@ -9,13 +13,19 @@ class UrlModel(models.Model):
     user_id = models.UUIDField(
         verbose_name='user unique identifier',
         db_index=True,
+        validators=[
+            validators.UUIDValidator(4)
+        ]
     )
     full_url = models.URLField(
         verbose_name='full url',
+        db_index=True,
     )
-    short_url = models.URLField(
+    url_code = models.CharField(
         verbose_name='short_url',
         unique=True,
+        max_length=7,
+        default=functools.partial(get_random_string, 7),
     )
     creation_datetime = models.DateTimeField(
         verbose_name='creation datetime',
@@ -25,18 +35,12 @@ class UrlModel(models.Model):
     class Meta:
         verbose_name = 'url'
         verbose_name_plural = 'urls'
-        # constraints = [
-        #     models.CheckConstraint(
-        #         name='full_url_check',
-        #         check=Q(full_url__regex=r'^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?', ),
-        #     ),
-        # ]
 
     def __repr__(self):
-        return f'{self.pk=} ~ {self.user_id=} ~ {self.short_url=}'
+        return f'{self.pk=} ~ {self.user_id=} ~ {self.url_code=}'
 
     def __str__(self):
-        return f'{self.pk}, user - {self.user_id}, short_url - {self.short_url}'
+        return f'{self.pk}, user - {self.user_id}, short_url - {self.url_code}'
 
     def save(self, fc=True, *args, **kwargs):
         if fc:
