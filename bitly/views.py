@@ -1,6 +1,9 @@
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework import generics
 
 from bitly import serializers as bitly_serializers
+from short_urls import constants
 
 
 class UrlCreateView(generics.CreateAPIView):
@@ -11,6 +14,7 @@ class UrlCreateView(generics.CreateAPIView):
     serializer_class = bitly_serializers.CreateUrlSerializer
 
 
+@method_decorator(cache_page(constants.DEFAULT_CACHE_TTL), name='get')
 class UrlRedirectDetailView(generics.RetrieveAPIView):
     """
     Вью для отдачи полного урла по урл коду.Примеры реквеста/ респонса в соотв. сериалайзере.

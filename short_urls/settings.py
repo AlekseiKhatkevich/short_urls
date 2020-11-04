@@ -127,8 +127,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+#  DRF settings
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 50,
+}
+
+# Redis and Django-redis settings
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/2',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PASSWORD': 'c7fTwzJjn5wPjpqzKQvdrwGtGAezv4'
+        }
+    }
 }

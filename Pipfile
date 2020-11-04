@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 djangorestframework = "*"
 drf-yasg = "*"
+django-redis = "*"
 
 [requires]
 python_version = "3.8"
