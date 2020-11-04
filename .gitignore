@@ -141,3 +141,4 @@ dmypy.json
 cython_debug/
 
 /short_urls/logs/
+/short_urls/settings.py.orig
