@@ -1,24 +1,10 @@
 from django.urls import path, register_converter
+
 from bitly import views
-from django.urls.converters import StringConverter, UUIDConverter
+from short_urls import converters
 
-
-class ShortUrlConverter(StringConverter):
-    """
-
-    """
-    regex = r'[^/]{7}'
-
-
-class CustomUUIDConverter(UUIDConverter):
-    """
-
-    """
-    regex = r'[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}'
-
-
-register_converter(ShortUrlConverter, 'url_code')
-register_converter(CustomUUIDConverter, 'uuid')
+register_converter(converters.ShortUrlConverter, 'url_code')
+register_converter(converters.CustomUUIDConverter, 'uuid')
 
 urlpatterns = [
     path('create/', views.UrlCreateView.as_view(), name='create_url',),

@@ -26,7 +26,7 @@ SECRET_KEY = 'n=dq*(3)uriozb%dn#j9u$_-%4_qu+k1t=$+i3d)wg-3)yglnu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', ]
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     # 3rd party apps
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -128,8 +129,6 @@ STATIC_URL = '/static/'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ]
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 50,
 }

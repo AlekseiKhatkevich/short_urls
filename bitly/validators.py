@@ -10,7 +10,8 @@ from short_urls import error_messages
 @deconstructible
 class UUIDValidator:
     """
-
+    Валидация UUID.
+    version - верисия UUID (1, 2, 3, 4, 5)
     """
     def __init__(self, version: int):
         self.version = version
