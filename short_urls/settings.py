@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -144,3 +144,64 @@ CACHES = {
         }
     }
 }
+
+# Logging settings
+LOGFILES_DIR = Path(r'short_urls/logs')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+        },
+        'file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGFILES_DIR / 'logfile.txt',
+            'delay': True,
+            'maxBytes': 10 ** 6,
+            'backupCount': 2,
+            'formatter': 'verbose',
+            'level': 'WARNING',
+        },
+        'security_file': {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': LOGFILES_DIR / 'security_logfile.txt',
+            'delay': True,
+            'maxBytes': 10 ** 3,
+            'backupCount': 2,
+            'formatter': 'verbose',
+            'level': 'WARNING',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file', 'console', ],
+            'propagate': True,
+            'level': 'WARNING'
+        },
+        'django.security': {
+            'handlers': ['security_file', ],
+            'propagate': True,
+            'level': 'WARNING',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} || {asctime} || {module} || {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        }, },
+ }
+
+DJANGO_DB_LOGGER_ENABLE_FORMATTER = True
