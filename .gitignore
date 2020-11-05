@@ -140,10 +140,10 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-/short_urls/logs/
 /short_urls/settings.py.orig
 /celerybeat-schedule.bak
 /celerybeat-schedule.dat
 /celerybeat-schedule.dir
 /staticfiles/
 /.idea/
+

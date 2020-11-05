@@ -12,7 +12,6 @@ logger = get_task_logger(__name__)
 
 @shared_task(
     autoretry_for=(redis.exceptions.RedisError,),
-    retry_kwargs={'max_retries': 5, },
     retry_backoff=True,
     max_retries=30,
 )
