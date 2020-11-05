@@ -1,7 +1,7 @@
 from celery.schedules import crontab
 from short_urls import constants
 
-broker_url = 'redis://127.0.0.1:6379/3'
+broker_url = 'redis://redis/3'
 task_serializer = 'pickle'
 accept_content = ['pickle']
 timezone = 'Europe/Moscow'

@@ -11,6 +11,7 @@ djangorestframework = "*"
 drf-yasg = "*"
 django-redis = "*"
 celery = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.8"

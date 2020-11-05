@@ -145,3 +145,5 @@ cython_debug/
 /celerybeat-schedule.bak
 /celerybeat-schedule.dat
 /celerybeat-schedule.dir
+/staticfiles/
+/.idea/

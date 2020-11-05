@@ -1,6 +1,3 @@
-# celery -A short_urls worker --loglevel=INFO -E
-# celery -A short_urls beat --loglevel=INFO --pidfile=
-
 import os
 
 from celery import Celery
