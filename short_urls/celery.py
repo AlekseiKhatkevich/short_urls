@@ -1,9 +1,9 @@
 # celery -A short_urls worker --loglevel=INFO -E
-
+# celery -A short_urls beat --loglevel=INFO --pidfile=
 
 import os
 
-from celery import Celery, shared_task
+from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'short_urls.settings')

@@ -1,13 +1,21 @@
 import django_redis
+import redis.exceptions
 from celery import shared_task
-from django.conf import settings
+from celery.utils.log import get_task_logger
 from django.utils import timezone
 
 from bitly.models import UrlModel
 from short_urls import constants
 
+logger = get_task_logger(__name__)
 
-@shared_task
+
+@shared_task(
+    autoretry_for=(redis.exceptions.RedisError,),
+    retry_kwargs={'max_retries': 5, },
+    retry_backoff=True,
+    max_retries=30,
+)
 def clean_old_urls(interval: int = constants.DEFAULT_CLEANUP_INTERVAL) -> str:
     """
     :param interval: Интервал в днях. Записи имеющие дату создания старше текущего момента минус
